@@ -2,41 +2,52 @@
 
 declare(strict_types=1);
 
-namespace unreal4u\dhcpParser;
+namespace unreal4u\dhcpParser\DataTypes;
+
+use unreal4u\dhcpParser\DataTypes\Client\Status;
 
 final class ClientMatch
 {
     private $leaseTime;
 
+    /**
+     * @var IpAddress
+     */
     private $assignedIp;
 
+    /**
+     * @var MacAddress
+     */
     private $macAddress;
 
     private $machineName;
 
     private $interface;
 
+    /**
+     * @var Status
+     */
     private $status;
 
     /**
      * ClientMatch constructor.
      * @param string $leaseDate
      * @param string $leaseTime
-     * @param string $assignedIp
-     * @param string $macAddress
+     * @param IpAddress $assignedIp
+     * @param MacAddress $macAddress
      * @param string $machineName
      * @param string $interface
-     * @param string $status
+     * @param Status $status
      * @throws \Exception
      */
     public function __construct(
         string $leaseDate,
         string $leaseTime,
-        string $assignedIp,
-        string $macAddress,
+        IpAddress $assignedIp,
+        MacAddress $macAddress,
         string $machineName,
         string $interface,
-        string $status
+        Status $status
     ) {
         $this
             ->setLeaseTime($leaseDate, $leaseTime)
@@ -59,13 +70,13 @@ final class ClientMatch
         return $this;
     }
 
-    private function setIp(string $assignedIp): self
+    private function setIp(IpAddress $assignedIp): self
     {
         $this->assignedIp = $assignedIp;
         return $this;
     }
 
-    private function setMacAddress(string $macAddress): self
+    private function setMacAddress(MacAddress $macAddress): self
     {
         $this->macAddress = $macAddress;
         return $this;
@@ -83,14 +94,24 @@ final class ClientMatch
         return $this;
     }
 
-    private function setStatus(string $status): self
+    private function setStatus(Status $status): self
     {
         $this->status = $status;
         return $this;
     }
 
+    public function getAssignedIp(): string
+    {
+        return $this->assignedIp->getIpAddress();
+    }
+
     public function getMacAddress(): string
     {
-        return $this->macAddress;
+        return $this->macAddress->getMacAddress();
+    }
+
+    public function getStatus(): string
+    {
+        $this->status->getStatus();
     }
 }

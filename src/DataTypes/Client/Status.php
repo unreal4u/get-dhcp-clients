@@ -9,7 +9,7 @@ use unreal4u\dhcpParser\Exceptions\InvalidClientStatus;
 final class Status
 {
     /**
-     * Which status is currently
+     * Which status has the client currently
      * @var string
      */
     private $status;

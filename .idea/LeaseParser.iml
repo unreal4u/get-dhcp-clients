@@ -3,7 +3,8 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" packagePrefix="unreal4u\dhcpParser\" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor" />
+      <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" packagePrefix="tests\unreal4u\dhcpParser\" />
+      <excludeFolder url="file://$MODULE_DIR$/tests/report" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
