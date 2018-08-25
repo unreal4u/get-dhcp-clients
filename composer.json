@@ -1,0 +1,11 @@
+{
+  "name": "unreal4u/dhcp-parser",
+  "require": {
+    "php": ">=7.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "unreal4u\\dhcpParser\\": "src"
+    }
+  }
+}

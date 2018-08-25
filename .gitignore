@@ -1,0 +1,5 @@
+vendor/
+composer.phar
+.idea/workspace.xml
+.idea/usage.statistics.xml
+.idea/tasks.xml
