@@ -112,6 +112,6 @@ final class ClientMatch
 
     public function getStatus(): string
     {
-        $this->status->getStatus();
+        return $this->status->getStatus();
     }
 }

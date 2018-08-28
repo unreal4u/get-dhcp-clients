@@ -34,8 +34,10 @@ final class ReadDhcpClients {
         while (!$this->methodList->isEmpty()) {
             /** @var InputFilter $method */
             $method = $this->methodList->dequeue();
-            $resultSet = $method->parseEntries();
+            $resultSet = $method->parseAllEntries();
             // TODO Do something with the outputFilters here
         }
+
+        return [];
     }
 }

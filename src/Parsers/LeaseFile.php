@@ -4,10 +4,11 @@ declare(strict_types = 1);
 
 namespace unreal4u\dhcpParser\Parsers;
 
+use unreal4u\dhcpParser\DataTypes\ClientMatch;
 use unreal4u\dhcpParser\InputFilter;
 
-final class LeaseFile implements InputFilter {
-    private $location;
+final class LeaseFile extends InputFilter {
+    private $location = '';
 
     public function setLocation(string $location=''): InputFilter
     {
@@ -19,12 +20,22 @@ final class LeaseFile implements InputFilter {
         return $this;
     }
 
-    public function parseEntries(): array
+    public function executeCommand(): array
     {
-        $returnArray = [];
-        $leasesFileContents = file_get_contents($this->location);
-        var_dump($leasesFileContents);
+        if ($this->location === '') {
+            throw new \RuntimeException('setLocation must be called before trying to parse the file');
+        }
 
-        return $returnArray;
+        return file_get_contents($this->location);
+    }
+
+    public function isValidEntry(string $entry): bool
+    {
+        // TODO: Implement isValidEntry() method.
+    }
+
+    public function extractInformation(string $entry): ClientMatch
+    {
+        // TODO: Implement extractInformation() method.
     }
 }
